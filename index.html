@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,613 +33,607 @@
     --rust-soft: #c44a3d;
   }
 
-- { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
-body {
-font-family: -apple-system, ‘SF Pro Text’, ‘Segoe UI’, Roboto, system-ui, sans-serif;
-font-size: 16px;
-line-height: 1.55;
-color: var(–ink);
-background: var(–paper);
-min-height: 100vh;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-
-.serif {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-}
-
-.container {
-max-width: 720px;
-margin: 0 auto;
-padding: 0 24px;
-}
-
-/* HERO */
-.hero {
-padding: 56px 0 36px;
-}
-
-.hero-tag {
-font-size: 11px;
-letter-spacing: 0.2em;
-color: var(–mute-2);
-margin-bottom: 8px;
-}
-
-.hero-title {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: clamp(38px, 7vw, 52px);
-font-weight: 500;
-letter-spacing: -0.015em;
-line-height: 1.05;
-color: var(–ink);
-}
-
-.hero-sub {
-font-size: 15px;
-color: var(–mute);
-margin-top: 10px;
-}
-
-/* WEATHER */
-.weather {
-margin: 24px 0 12px;
-}
-
-.weather-label {
-font-size: 10px;
-letter-spacing: 0.2em;
-color: var(–mute-2);
-margin-bottom: 10px;
-}
-
-.weather-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 10px;
-}
-
-.w-day {
-background: var(–paper-2);
-border: 0.5px solid var(–line);
-padding: 14px 10px;
-text-align: center;
-}
-
-.w-day.derby {
-border: 1px solid var(–rust);
-padding: 13px 10px;
-}
-
-.w-dow {
-font-size: 10px;
-letter-spacing: 0.1em;
-color: var(–mute-2);
-}
-
-.w-day.derby .w-dow {
-color: var(–rust);
-font-weight: 600;
-}
-
-.w-icon {
-margin: 8px auto 4px;
-display: block;
-color: var(–ink);
-}
-
-.w-day.derby .w-icon { color: var(–rust); }
-
-.w-temp {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 22px;
-font-weight: 500;
-line-height: 1;
-}
-
-.w-day.derby .w-temp { color: var(–rust); }
-
-.w-low {
-font-size: 11px;
-color: var(–mute);
-margin-top: 2px;
-}
-
-.w-cond {
-font-size: 11px;
-color: var(–mute);
-margin-top: 2px;
-}
-
-.w-day.derby .w-cond,
-.w-day.derby .w-low {
-color: var(–rust);
-}
-
-.w-rain {
-font-size: 10px;
-color: var(–mute-2);
-margin-top: 1px;
-}
-
-.w-loading {
-grid-column: 1 / -1;
-text-align: center;
-font-size: 13px;
-color: var(–mute);
-padding: 28px 10px;
-font-style: italic;
-}
-
-.w-note {
-text-align: center;
-font-size: 12px;
-color: var(–mute-2);
-margin-top: 10px;
-font-style: italic;
-}
-
-@media (max-width: 480px) {
-.weather-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* SECTIONS (collapsible) */
-details {
-border-top: 0.5px solid var(–line);
-}
-
-details:last-of-type {
-border-bottom: 0.5px solid var(–line);
-}
-
-summary {
-list-style: none;
-cursor: pointer;
-padding: 18px 0;
-display: flex;
-align-items: center;
-justify-content: space-between;
-user-select: none;
--webkit-user-select: none;
-}
-
-summary::-webkit-details-marker { display: none; }
-summary::marker { display: none; }
-
-.sec-label {
-display: flex;
-align-items: baseline;
-gap: 14px;
-}
-
-.sec-num {
-font-size: 11px;
-letter-spacing: 0.15em;
-color: var(–mute-2);
-font-variant-numeric: tabular-nums;
-}
-
-.sec-title {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 22px;
-font-weight: 500;
-letter-spacing: -0.005em;
-}
-
-.sec-meta {
-font-size: 13px;
-color: var(–mute);
-}
-
-.sec-toggle {
-font-size: 18px;
-color: var(–mute-2);
-width: 16px;
-text-align: center;
-line-height: 1;
-transition: transform 0.15s;
-}
-
-details[open] > summary .sec-toggle { transform: rotate(45deg); }
-
-details[open].derby > summary .sec-toggle { color: var(–rust); }
-
-details.derby > summary .sec-num,
-details.derby > summary .sec-title,
-details.derby > summary .sec-meta {
-color: var(–rust);
-}
-
-.sec-body {
-padding: 4px 0 28px;
-}
-
-/* TIMELINE EVENTS */
-.event {
-display: grid;
-grid-template-columns: 90px 1fr;
-gap: 16px;
-padding: 14px 0;
-border-top: 1px solid var(–line);
-}
-
-.event:first-child { border-top: none; padding-top: 4px; }
-
-.event-time {
-font-size: 12px;
-color: var(–mute);
-font-variant-numeric: tabular-nums;
-padding-top: 3px;
-}
-
-.event-title {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 17px;
-font-weight: 500;
-line-height: 1.25;
-color: var(–ink);
-}
-
-.event-detail {
-font-size: 14px;
-color: var(–ink-2);
-margin-top: 3px;
-line-height: 1.5;
-}
-
-.event-detail a {
-color: var(–rust);
-text-decoration: none;
-border-bottom: 0.5px solid var(–rust);
-}
-
-.event-detail strong {
-font-weight: 600;
-color: var(–ink);
-}
-
-.locked {
-display: inline-block;
-margin-top: 5px;
-font-size: 10px;
-letter-spacing: 0.1em;
-color: var(–mute);
-text-transform: uppercase;
-}
-
-/* CARS */
-.cars {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-gap: 14px;
-}
-
-.car {
-background: var(–paper-2);
-border: 0.5px solid var(–line);
-padding: 14px 16px;
-}
-
-.car-driver {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 16px;
-font-weight: 500;
-}
-
-.car-meta {
-font-size: 11px;
-color: var(–mute);
-letter-spacing: 0.05em;
-margin-top: 2px;
-}
-
-.car-riders {
-list-style: none;
-margin-top: 10px;
-padding-top: 10px;
-border-top: 0.5px solid var(–line-soft);
-}
-
-.car-riders li {
-padding: 4px 0;
-font-size: 14px;
-color: var(–ink-2);
-}
-
-.car-riders li.bachelor {
-color: var(–rust);
-font-weight: 600;
-}
-
-.car-riders li.bachelor::after {
-content: ’ ★’;
-}
-
-.car-riders li.solo {
-color: var(–mute);
-font-style: italic;
-}
-
-/* LOGISTICS LIST (plain, no boxes) */
-.logi-list {
-display: grid;
-grid-template-columns: 180px 1fr;
-gap: 12px 20px;
-}
-
-.logi-list dt {
-font-size: 11px;
-letter-spacing: 0.15em;
-color: var(–mute-2);
-text-transform: uppercase;
-padding-top: 2px;
-}
-
-.logi-list dd {
-font-size: 15px;
-color: var(–ink);
-line-height: 1.5;
-}
-
-.logi-list dd a {
-color: var(–rust);
-text-decoration: none;
-border-bottom: 0.5px solid var(–rust);
-}
-
-@media (max-width: 480px) {
-.logi-list { grid-template-columns: 1fr; gap: 4px 0; }
-.logi-list dt { padding-top: 12px; }
-.logi-list dt:first-child { padding-top: 0; }
-.logi-list dd { margin-bottom: 4px; }
-}
-
-/* CALLOUTS */
-.note {
-background: var(–paper-2);
-border-left: 2px solid var(–rust);
-padding: 12px 14px;
-margin: 16px 0 4px;
-font-size: 14px;
-color: var(–ink-2);
-line-height: 1.5;
-}
-
-.note strong {
-color: var(–rust);
-font-weight: 600;
-}
-
-/* BARS */
-.bars {
-margin-top: 20px;
-}
-
-.bars-head {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 14px;
-color: var(–mute);
-margin-bottom: 8px;
-font-style: italic;
-}
-
-.bars-list {
-list-style: none;
-background: var(–paper-2);
-border: 0.5px solid var(–line);
-}
-
-.bars-list li {
-display: grid;
-grid-template-columns: 160px 1fr;
-gap: 12px;
-padding: 10px 14px;
-border-bottom: 0.5px solid var(–line-soft);
-align-items: baseline;
-}
-
-.bars-list li:last-child { border-bottom: none; }
-
-.bar-name {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 15px;
-font-weight: 500;
-}
-
-.bar-desc {
-font-size: 13px;
-color: var(–mute);
-line-height: 1.4;
-}
-
-@media (max-width: 480px) {
-.bars-list li { grid-template-columns: 1fr; gap: 2px; }
-}
-
-/* DERBY DAY KEY TIMES */
-.derby-key {
-background: var(–paper-2);
-border: 1px solid var(–rust);
-padding: 16px;
-margin-bottom: 18px;
-}
-
-.derby-key-title {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 14px;
-color: var(–rust);
-text-align: center;
-font-style: italic;
-margin-bottom: 12px;
-}
-
-.derby-key-times {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 8px;
-}
-
-.derby-key-time {
-text-align: center;
-}
-
-.derby-key-label {
-font-size: 10px;
-letter-spacing: 0.15em;
-color: var(–mute-2);
-margin-bottom: 2px;
-}
-
-.derby-key-value {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 19px;
-color: var(–ink);
-}
-
-/* HORSE FIELD */
-.field {
-background: var(–paper-2);
-border: 0.5px solid var(–line);
-}
-
-.field-row {
-display: grid;
-grid-template-columns: 28px 1fr 60px 60px;
-gap: 10px;
-padding: 11px 14px;
-border-bottom: 0.5px solid var(–line-soft);
-align-items: center;
-}
-
-.field-row:last-child { border-bottom: none; }
-
-.field-row.head {
-background: var(–paper);
-border-bottom: 0.5px solid var(–line);
-}
-
-.field-row.head > div {
-font-size: 10px;
-letter-spacing: 0.15em;
-color: var(–mute-2);
-}
-
-.field-rank {
-font-size: 12px;
-color: var(–mute-2);
-text-align: center;
-font-variant-numeric: tabular-nums;
-}
-
-.field-horse {
-font-family: ‘Iowan Old Style’, ‘Palatino’, Georgia, serif;
-font-size: 15px;
-font-weight: 500;
-line-height: 1.2;
-}
-
-.field-trainer {
-font-size: 11px;
-color: var(–mute);
-margin-top: 1px;
-}
-
-.field-num {
-font-size: 13px;
-color: var(–ink-2);
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-
-.field-row.fav .field-horse { color: var(–rust); }
-.field-row.fav .field-num { color: var(–rust); font-weight: 600; }
-
-.field-row.scratch {
-opacity: 0.4;
-}
-
-.field-row.scratch .field-horse {
-text-decoration: line-through;
-color: var(–mute);
-}
-
-.field-row.scratch .field-trainer {
-color: var(–rust);
-font-weight: 500;
-text-transform: uppercase;
-font-size: 10px;
-letter-spacing: 0.1em;
-}
-
-.field-source {
-font-size: 12px;
-color: var(–mute);
-margin-top: 12px;
-text-align: center;
-font-style: italic;
-}
-
-.field-source a {
-color: var(–rust);
-text-decoration: none;
-border-bottom: 0.5px solid var(–rust);
-font-style: normal;
-}
-
-/* FOOTER */
-footer {
-padding: 36px 0 48px;
-text-align: center;
-}
-
-footer p {
-font-size: 11px;
-letter-spacing: 0.2em;
-color: var(–mute-2);
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-.container { padding: 0 18px; }
-.hero { padding: 36px 0 24px; }
-.event { grid-template-columns: 70px 1fr; gap: 12px; }
-.event-time { font-size: 11px; }
-.event-title { font-size: 16px; }
-.event-detail { font-size: 13px; }
-.sec-title { font-size: 19px; }
-}
+  body {
+    font-family: -apple-system, 'SF Pro Text', 'Segoe UI', Roboto, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .serif {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 56px 0 36px;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--mute-2);
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: clamp(38px, 7vw, 52px);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--mute);
+    margin-top: 10px;
+  }
+
+  /* WEATHER */
+  .weather {
+    margin: 24px 0 12px;
+  }
+
+  .weather-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--mute-2);
+    margin-bottom: 10px;
+  }
+
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .w-day {
+    background: var(--paper-2);
+    border: 0.5px solid var(--line);
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .w-day.derby {
+    border: 1px solid var(--rust);
+    padding: 13px 10px;
+  }
+
+  .w-dow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--mute-2);
+  }
+
+  .w-day.derby .w-dow {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .w-icon {
+    margin: 8px auto 4px;
+    display: block;
+    color: var(--ink);
+  }
+
+  .w-day.derby .w-icon { color: var(--rust); }
+
+  .w-temp {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .w-day.derby .w-temp { color: var(--rust); }
+
+  .w-low {
+    font-size: 11px;
+    color: var(--mute);
+    margin-top: 2px;
+  }
+
+  .w-cond {
+    font-size: 11px;
+    color: var(--mute);
+    margin-top: 2px;
+  }
+
+  .w-day.derby .w-cond,
+  .w-day.derby .w-low {
+    color: var(--rust);
+  }
+
+  .w-rain {
+    font-size: 10px;
+    color: var(--mute-2);
+    margin-top: 1px;
+  }
+
+  .w-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 13px;
+    color: var(--mute);
+    padding: 28px 10px;
+    font-style: italic;
+  }
+
+  .w-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--mute-2);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .weather-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* SECTIONS (collapsible) */
+  details {
+    border-top: 0.5px solid var(--line);
+  }
+
+  details:last-of-type {
+    border-bottom: 0.5px solid var(--line);
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+  summary::marker { display: none; }
+
+  .sec-label {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .sec-num {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--mute-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sec-title {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  .sec-meta {
+    font-size: 13px;
+    color: var(--mute);
+  }
+
+  .sec-toggle {
+    font-size: 18px;
+    color: var(--mute-2);
+    width: 16px;
+    text-align: center;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+
+  details[open] > summary .sec-toggle { transform: rotate(45deg); }
+
+  details[open].derby > summary .sec-toggle { color: var(--rust); }
+
+  details.derby > summary .sec-num,
+  details.derby > summary .sec-title,
+  details.derby > summary .sec-meta {
+    color: var(--rust);
+  }
+
+  .sec-body {
+    padding: 4px 0 28px;
+  }
+
+  /* TIMELINE EVENTS */
+  .event {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .event:first-child { border-top: none; padding-top: 4px; }
+
+  .event-time {
+    font-size: 12px;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+    padding-top: 3px;
+  }
+
+  .event-title {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .event-detail {
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .event-detail a {
+    color: var(--rust);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--rust);
+  }
+
+  .event-detail strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .locked {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+
+  /* CARS */
+  .cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .car {
+    background: var(--paper-2);
+    border: 0.5px solid var(--line);
+    padding: 14px 16px;
+  }
+
+  .car-driver {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .car-meta {
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  .car-riders {
+    list-style: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 0.5px solid var(--line-soft);
+  }
+
+  .car-riders li {
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+
+  .car-riders li.bachelor {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .car-riders li.bachelor::after {
+    content: ' ★';
+  }
+
+  .car-riders li.solo {
+    color: var(--mute);
+    font-style: italic;
+  }
+
+  /* LOGISTICS LIST (plain, no boxes) */
+  .logi-list {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 12px 20px;
+  }
+
+  .logi-list dt {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--mute-2);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+
+  .logi-list dd {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .logi-list dd a {
+    color: var(--rust);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--rust);
+  }
+
+  @media (max-width: 480px) {
+    .logi-list { grid-template-columns: 1fr; gap: 4px 0; }
+    .logi-list dt { padding-top: 12px; }
+    .logi-list dt:first-child { padding-top: 0; }
+    .logi-list dd { margin-bottom: 4px; }
+  }
+
+  /* CALLOUTS */
+  .note {
+    background: var(--paper-2);
+    border-left: 2px solid var(--rust);
+    padding: 12px 14px;
+    margin: 16px 0 4px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  .note strong {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  /* BARS */
+  .bars {
+    margin-top: 20px;
+  }
+
+  .bars-head {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 14px;
+    color: var(--mute);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .bars-list {
+    list-style: none;
+    background: var(--paper-2);
+    border: 0.5px solid var(--line);
+  }
+
+  .bars-list li {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 0.5px solid var(--line-soft);
+    align-items: baseline;
+  }
+
+  .bars-list li:last-child { border-bottom: none; }
+
+  .bar-name {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .bar-desc {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 480px) {
+    .bars-list li { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  /* DERBY DAY KEY TIMES */
+  .derby-key {
+    background: var(--paper-2);
+    border: 1px solid var(--rust);
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  .derby-key-title {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 14px;
+    color: var(--rust);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .derby-key-times {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .derby-key-time {
+    text-align: center;
+  }
+
+  .derby-key-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--mute-2);
+    margin-bottom: 2px;
+  }
+
+  .derby-key-value {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 19px;
+    color: var(--ink);
+  }
+
+  /* HORSE FIELD */
+  .field {
+    background: var(--paper-2);
+    border: 0.5px solid var(--line);
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 28px 1fr 60px 60px;
+    gap: 10px;
+    padding: 11px 14px;
+    border-bottom: 0.5px solid var(--line-soft);
+    align-items: center;
+  }
+
+  .field-row:last-child { border-bottom: none; }
+
+  .field-row.head {
+    background: var(--paper);
+    border-bottom: 0.5px solid var(--line);
+  }
+
+  .field-row.head > div {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--mute-2);
+  }
+
+  .field-rank {
+    font-size: 12px;
+    color: var(--mute-2);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .field-horse {
+    font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .field-trainer {
+    font-size: 11px;
+    color: var(--mute);
+    margin-top: 1px;
+  }
+
+  .field-num {
+    font-size: 13px;
+    color: var(--ink-2);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .field-row.fav .field-horse { color: var(--rust); }
+  .field-row.fav .field-num { color: var(--rust); font-weight: 600; }
+
+  .field-row.scratch {
+    opacity: 0.4;
+  }
+
+  .field-row.scratch .field-horse {
+    text-decoration: line-through;
+    color: var(--mute);
+  }
+
+  .field-row.scratch .field-trainer {
+    color: var(--rust);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .field-source {
+    font-size: 12px;
+    color: var(--mute);
+    margin-top: 12px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .field-source a {
+    color: var(--rust);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--rust);
+    font-style: normal;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 0 48px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--mute-2);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .container { padding: 0 18px; }
+    .hero { padding: 36px 0 24px; }
+    .event { grid-template-columns: 70px 1fr; gap: 12px; }
+    .event-time { font-size: 11px; }
+    .event-title { font-size: 16px; }
+    .event-detail { font-size: 13px; }
+    .sec-title { font-size: 19px; }
+  }
 </style>
-
 </head>
 <body>
 
 <div class="container">
 
   <!-- HERO -->
-
   <header class="hero">
     <div class="hero-tag">DERBY WEEKEND · 2026</div>
     <h1 class="hero-title">Ty's Bachelor Party</h1>
     <div class="hero-sub">Louisville, Kentucky · April 30 — May 3</div>
 
-```
-<!-- WEATHER -->
-<div class="weather">
-  <div class="weather-label">FORECAST</div>
-  <div id="weather-grid" class="weather-grid">
-    <div class="w-loading">Pulling forecast…</div>
-  </div>
-  <div id="weather-note" class="w-note" style="display:none;"></div>
-</div>
-```
-
+    <!-- WEATHER -->
+    <div class="weather">
+      <div class="weather-label">FORECAST</div>
+      <div id="weather-grid" class="weather-grid">
+        <div class="w-loading">Pulling forecast…</div>
+      </div>
+      <div id="weather-note" class="w-note" style="display:none;"></div>
+    </div>
   </header>
 
   <!-- CAR ASSIGNMENTS -->
-
   <details id="cars">
     <summary>
       <div class="sec-label">
@@ -691,7 +684,6 @@ color: var(–mute-2);
   </details>
 
   <!-- LOGISTICS -->
-
   <details id="logistics">
     <summary>
       <div class="sec-label">
@@ -708,23 +700,19 @@ color: var(–mute-2);
           <a href="https://www.airbnb.com/rooms/1083555105511340844">Listing →</a>
         </dd>
 
-```
-    <dt>Check in</dt>
-    <dd>Thursday, April 30 · 4:00 PM</dd>
+        <dt>Check in</dt>
+        <dd>Thursday, April 30 · 4:00 PM</dd>
 
-    <dt>Check out</dt>
-    <dd>Sunday, May 3 · 11:00 AM</dd>
+        <dt>Check out</dt>
+        <dd>Sunday, May 3 · 11:00 AM</dd>
 
-    <dt>To downtown Louisville</dt>
-    <dd>12 mi · ~20 min drive</dd>
-  </dl>
-</div>
-```
-
+        <dt>To downtown Louisville</dt>
+        <dd>12 mi · ~20 min drive</dd>
+      </dl>
+    </div>
   </details>
 
   <!-- THURSDAY -->
-
   <details id="thursday">
     <summary>
       <div class="sec-label">
@@ -767,24 +755,20 @@ color: var(–mute-2);
         </div>
       </div>
 
-```
-  <div class="bars">
-    <div class="bars-head">Thursday bar options</div>
-    <ul class="bars-list">
-      <li><span class="bar-name">NuLu</span><span class="bar-desc">East Market St. Walkable strip of bars. Better move than 4th Street.</span></li>
-      <li><span class="bar-name">Garage Bar</span><span class="bar-desc">NuLu. Bourbon, pizza, patio. Easy group hang.</span></li>
-      <li><span class="bar-name">Whiskey Row</span><span class="bar-desc">Main St. Bourbon-heavy, short walk from Lou Lou.</span></li>
-      <li><span class="bar-name">Butchertown Social</span><span class="bar-desc">Cocktails. Slower burn if the vibe calls for it.</span></li>
-      <li><span class="bar-name">4th Street Live</span><span class="bar-desc">Touristy and loud. Chaos if you want it.</span></li>
-    </ul>
-  </div>
-</div>
-```
-
+      <div class="bars">
+        <div class="bars-head">Thursday bar options</div>
+        <ul class="bars-list">
+          <li><span class="bar-name">NuLu</span><span class="bar-desc">East Market St. Walkable strip of bars. Better move than 4th Street.</span></li>
+          <li><span class="bar-name">Garage Bar</span><span class="bar-desc">NuLu. Bourbon, pizza, patio. Easy group hang.</span></li>
+          <li><span class="bar-name">Whiskey Row</span><span class="bar-desc">Main St. Bourbon-heavy, short walk from Lou Lou.</span></li>
+          <li><span class="bar-name">Butchertown Social</span><span class="bar-desc">Cocktails. Slower burn if the vibe calls for it.</span></li>
+          <li><span class="bar-name">4th Street Live</span><span class="bar-desc">Touristy and loud. Chaos if you want it.</span></li>
+        </ul>
+      </div>
+    </div>
   </details>
 
   <!-- FRIDAY -->
-
   <details id="friday">
     <summary>
       <div class="sec-label">
@@ -799,94 +783,90 @@ color: var(–mute-2);
         <strong>Heads up.</strong> Oaks runs primetime Friday at 8pm — first time ever. City will be a zoo. Reservations anywhere will be tight.
       </div>
 
-```
-  <div class="event">
-    <div class="event-time">Morning</div>
-    <div>
-      <div class="event-title">Hang at the house</div>
-      <div class="event-detail">Pickleball, beers on the deck, slow start. Head into Louisville around 1:30 — park once near Evan Williams (528 W Main), everything Friday is walking.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">2:45 PM</div>
-    <div>
-      <div class="event-title">Evan Williams Speakeasy Tasting</div>
-      <div class="event-detail">45 min. Full group.<br>
-        <a href="https://evanwilliams.com/visit/">Website</a>
-        <div class="locked">Tickets purchased</div>
+      <div class="event">
+        <div class="event-time">Morning</div>
+        <div>
+          <div class="event-title">Hang at the house</div>
+          <div class="event-detail">Pickleball, beers on the deck, slow start. Head into Louisville around 1:30 — park once near Evan Williams (528 W Main), everything Friday is walking.</div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">~4:00 PM</div>
-    <div>
-      <div class="event-title">Split · walk to Angel's Envy</div>
-      <div class="event-detail">~10 min walk. Break into two groups on the ground.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">4:30 PM</div>
-    <div>
-      <div class="event-title">Angel's Envy · Group 1</div>
-      <div class="event-detail">500 E Main St. Tour + tasting.<br>
-        <a href="https://www.angelsenvy.com/visit-the-distillery">Website</a>
-        <div class="locked">Tickets purchased</div>
+      <div class="event">
+        <div class="event-time">2:45 PM</div>
+        <div>
+          <div class="event-title">Evan Williams Speakeasy Tasting</div>
+          <div class="event-detail">45 min. Full group.<br>
+            <a href="https://evanwilliams.com/visit/">Website</a>
+            <div class="locked">Tickets purchased</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">5:00 PM</div>
-    <div>
-      <div class="event-title">Angel's Envy · Group 2</div>
-      <div class="event-detail">Same spot, 30 min later.
-        <div class="locked">Tickets purchased</div>
+      <div class="event">
+        <div class="event-time">~4:00 PM</div>
+        <div>
+          <div class="event-title">Split · walk to Angel's Envy</div>
+          <div class="event-detail">~10 min walk. Break into two groups on the ground.</div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">7:15 PM</div>
-    <div>
-      <div class="event-title">Doc Crow's · Group 1</div>
-      <div class="event-detail">127 W Main. Smokehouse, raw bar, bourbon flights.<br>
-        <a href="https://www.doccrows.com">Website</a> · <a href="https://www.doccrows.com/dinner-menu">Menu</a>
-        <div class="locked">Booked</div>
+      <div class="event">
+        <div class="event-time">4:30 PM</div>
+        <div>
+          <div class="event-title">Angel's Envy · Group 1</div>
+          <div class="event-detail">500 E Main St. Tour + tasting.<br>
+            <a href="https://www.angelsenvy.com/visit-the-distillery">Website</a>
+            <div class="locked">Tickets purchased</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">7:30 PM</div>
-    <div>
-      <div class="event-title">Doc Crow's · Group 2</div>
-      <div class="event-detail">Same spot, 15 min later.
-        <div class="locked">Booked</div>
+      <div class="event">
+        <div class="event-time">5:00 PM</div>
+        <div>
+          <div class="event-title">Angel's Envy · Group 2</div>
+          <div class="event-detail">Same spot, 30 min later.
+            <div class="locked">Tickets purchased</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">Late</div>
-    <div>
-      <div class="event-title">Out on the row</div>
-      <div class="event-detail">Doc Crow's is on Whiskey Row. Everything's walkable.</div>
-    </div>
-  </div>
+      <div class="event">
+        <div class="event-time">7:15 PM</div>
+        <div>
+          <div class="event-title">Doc Crow's · Group 1</div>
+          <div class="event-detail">127 W Main. Smokehouse, raw bar, bourbon flights.<br>
+            <a href="https://www.doccrows.com">Website</a> · <a href="https://www.doccrows.com/dinner-menu">Menu</a>
+            <div class="locked">Booked</div>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">7:30 PM</div>
+        <div>
+          <div class="event-title">Doc Crow's · Group 2</div>
+          <div class="event-detail">Same spot, 15 min later.
+            <div class="locked">Booked</div>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">Late</div>
+        <div>
+          <div class="event-title">Out on the row</div>
+          <div class="event-detail">Doc Crow's is on Whiskey Row. Everything's walkable.</div>
+        </div>
+      </div>
 
-  <div class="bars">
-    <div class="bars-head">Friday bar options</div>
-    <ul class="bars-list">
-      <li><span class="bar-name">Troll Pub</span><span class="bar-desc">Literally under the Clark Memorial Bridge. Weird, fun, solid beer.</span></li>
-      <li><span class="bar-name">Merle's Whiskey Kitchen</span><span class="bar-desc">Whiskey Row. Live music, deep whiskey list.</span></li>
-      <li><span class="bar-name">Hell or High Water</span><span class="bar-desc">Speakeasy. Book ahead — Oaks night will crush it.</span></li>
-      <li><span class="bar-name">Old Forester</span><span class="bar-desc">Walk-in bourbon bar on Main. Clean move.</span></li>
-      <li><span class="bar-name">8UP</span><span class="bar-desc">Rooftop downtown. Views, packed.</span></li>
-    </ul>
-  </div>
-</div>
-```
-
+      <div class="bars">
+        <div class="bars-head">Friday bar options</div>
+        <ul class="bars-list">
+          <li><span class="bar-name">Troll Pub</span><span class="bar-desc">Literally under the Clark Memorial Bridge. Weird, fun, solid beer.</span></li>
+          <li><span class="bar-name">Merle's Whiskey Kitchen</span><span class="bar-desc">Whiskey Row. Live music, deep whiskey list.</span></li>
+          <li><span class="bar-name">Hell or High Water</span><span class="bar-desc">Speakeasy. Book ahead — Oaks night will crush it.</span></li>
+          <li><span class="bar-name">Old Forester</span><span class="bar-desc">Walk-in bourbon bar on Main. Clean move.</span></li>
+          <li><span class="bar-name">8UP</span><span class="bar-desc">Rooftop downtown. Views, packed.</span></li>
+        </ul>
+      </div>
+    </div>
   </details>
 
   <!-- SATURDAY -->
-
   <details id="saturday" class="derby">
     <summary>
       <div class="sec-label">
@@ -915,69 +895,65 @@ color: var(–mute-2);
         </div>
       </div>
 
-```
-  <div class="event">
-    <div class="event-time">Morning</div>
-    <div>
-      <div class="event-title">Get ready</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">~10:30 AM</div>
-    <div>
-      <div class="event-title">3x Uber XL to Churchill</div>
-      <div class="event-detail">Roll out early. Traffic and gate lines are no joke. On-site by <strong>11:30</strong>.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">~11:30 AM</div>
-    <div>
-      <div class="event-title">Infield gate · security</div>
-      <div class="event-detail">Gate 1 or Gate 3 only. Bag max 12"×6"×12". No backpacks, no coolers, no outside booze.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">All day</div>
-    <div>
-      <div class="event-title">Infield · 14 races · 9 stakes</div>
-      <div class="event-detail">Bet. Drink. Repeat. Infield is standing room — it's for the party, not the view.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">6:57 PM</div>
-    <div>
-      <div class="event-title">The Kentucky Derby</div>
-      <div class="event-detail">152nd running. 1¼ miles. $5M purse. Two minutes. Post up early.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">After</div>
-    <div>
-      <div class="event-title">Exit plan</div>
-      <div class="event-detail">Uber shut off in a wide perimeter post-race. Options:<br>
-        <strong>1.</strong> Pre-arranged driver — lock it down Thu/Fri.<br>
-        <strong>2.</strong> Walk 20-30 min out, then Uber.<br>
-        <strong>3.</strong> Hang at the track, let the crowd thin.</div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="event-time">Night</div>
-    <div>
-      <div class="event-title">Back to base</div>
-      <div class="event-detail">No plans. Back at the house, more bourbon, or one more downtown push.</div>
-    </div>
-  </div>
+      <div class="event">
+        <div class="event-time">Morning</div>
+        <div>
+          <div class="event-title">Get ready</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">~10:30 AM</div>
+        <div>
+          <div class="event-title">3x Uber XL to Churchill</div>
+          <div class="event-detail">Roll out early. Traffic and gate lines are no joke. On-site by <strong>11:30</strong>.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">~11:30 AM</div>
+        <div>
+          <div class="event-title">Infield gate · security</div>
+          <div class="event-detail">Gate 1 or Gate 3 only. Bag max 12"×6"×12". No backpacks, no coolers, no outside booze.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">All day</div>
+        <div>
+          <div class="event-title">Infield · 14 races · 9 stakes</div>
+          <div class="event-detail">Bet. Drink. Repeat. Infield is standing room — it's for the party, not the view.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">6:57 PM</div>
+        <div>
+          <div class="event-title">The Kentucky Derby</div>
+          <div class="event-detail">152nd running. 1¼ miles. $5M purse. Two minutes. Post up early.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">After</div>
+        <div>
+          <div class="event-title">Exit plan</div>
+          <div class="event-detail">Uber shut off in a wide perimeter post-race. Options:<br>
+            <strong>1.</strong> Pre-arranged driver — lock it down Thu/Fri.<br>
+            <strong>2.</strong> Walk 20-30 min out, then Uber.<br>
+            <strong>3.</strong> Hang at the track, let the crowd thin.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">Night</div>
+        <div>
+          <div class="event-title">Back to base</div>
+          <div class="event-detail">No plans. Back at the house, more bourbon, or one more downtown push.</div>
+        </div>
+      </div>
 
-  <div class="note">
-    <strong>Infield kit.</strong> One clear bag (12"×6"×12") · phone charger · $200-300 cash · sunscreen · sunglasses · comfortable shoes. Leave the backpack, camera, and umbrella at the house.
-  </div>
-</div>
-```
-
+      <div class="note">
+        <strong>Infield kit.</strong> One clear bag (12"×6"×12") · phone charger · $200-300 cash · sunscreen · sunglasses · comfortable shoes. Leave the backpack, camera, and umbrella at the house.
+      </div>
+    </div>
   </details>
 
   <!-- FIELD -->
-
   <details id="field">
     <summary>
       <div class="sec-label">
@@ -1204,19 +1180,15 @@ color: var(–mute-2);
         </div>
       </div>
 
-```
-  <div class="field-source">
-    Updated Friday May 1 · 3 scratches: Right to Party, Silent Tactic, Fulleffort<br>
-    Outside posts (14-20) shifted one closer to the rail · Great White / Ocelli / Robusta added<br>
-    Live odds: <a href="https://www.kentuckyderby.com/wager/live-odds/">KentuckyDerby</a> · <a href="https://www.twinspires.com/kentuckyderby/odds/">TwinSpires</a> · <a href="https://www.fanduel.com/kentucky-derby-odds">FanDuel</a>
-  </div>
-</div>
-```
-
+      <div class="field-source">
+        Updated Friday May 1 · 3 scratches: Right to Party, Silent Tactic, Fulleffort<br>
+        Outside posts (14-20) shifted one closer to the rail · Great White / Ocelli / Robusta added<br>
+        Live odds: <a href="https://www.kentuckyderby.com/wager/live-odds/">KentuckyDerby</a> · <a href="https://www.twinspires.com/kentuckyderby/odds/">TwinSpires</a> · <a href="https://www.fanduel.com/kentucky-derby-odds">FanDuel</a>
+      </div>
+    </div>
   </details>
 
   <!-- SUNDAY -->
-
   <details id="sunday">
     <summary>
       <div class="sec-label">
